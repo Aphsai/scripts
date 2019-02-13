@@ -1,0 +1,2 @@
+#!/bin/bash
+ls "$1.tex" "$1.bbl" | entr pdflatex -interaction=nonstopmode -file-line-error "$1.tex" | grep "\./" & ls "$1.pdf" | entr pkill -HUP mupdf  

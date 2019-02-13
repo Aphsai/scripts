@@ -1,0 +1,17 @@
+#!/bin/bash
+
+export DBUS_SESSION_BUS_ADDRESS=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$(pidof i3)/environ | cut -d= -f2-)
+mail_dir="/home/aphsai/mail"
+offlineimap
+notify() { notify-send "$2 new mail(s) in \`$1\` account."; }
+for account in $(ls $mail_dir); do
+	newcount=$(find /home/aphsai/mail/$account/[Ii][Nn][Bb][Oo][Xx]/new/ -type f -newer ~/.mutt/.mailsynclastrun | wc -l)
+	if [ "$newcount" -gt "0" ]
+	then
+		notify "$account" "$newcount" &
+	fi
+done
+notmuch new
+
+touch ~/.mutt/.mailsynclastrun
+

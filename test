@@ -1,0 +1,2 @@
+export DBUS_SESSION_BUS_ADDRESS=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$(pidof i3)/environ | cut -d= -f2-)
+notify-send "Hi aphsai!" "it's time to check your email." --icon=dialog-information
