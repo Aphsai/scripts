@@ -1,0 +1,1 @@
+calcurse --filter-type=event,apt --filter-start-from=$(date +%m/%d/%Y) -G

@@ -1,0 +1,1 @@
+import /tmp/ss.png && xclip -selection clipboard -t image/png -i /tmp/ss.png
