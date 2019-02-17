@@ -1,1 +1,3 @@
-import /tmp/ss.png && xclip -selection clipboard -t image/png -i /tmp/ss.png
+#!/bin/bash
+TIME=$(date +%s%N)
+import ~/pictures/screenshots/"$TIME".png && xclip -selection clipboard -t image/png -i ~/pictures/screenshots/"$TIME".png
