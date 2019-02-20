@@ -1,0 +1,3 @@
+#!/bin/bash
+TIME=$(date +%S%N)
+xclip -selelection clipboard -o > /tmp/$TIME && cat /tmp/$TIME | qrencode -l H -v 1 -o /tmp/"$TIME".png && sxiv /tmp/"$TIME".png

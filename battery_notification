@@ -1,6 +1,7 @@
+#!/bin/bash
 export DBUS_SESSION_BUS_ADDRESS=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$(pidof i3)/environ | cut -d= -f2-)
 
 BATTERY_LEVEL=$(cat /sys/class/power_supply/BAT1/capacity)
 if [[ $BATTERY_LEVEL -lt 10 ]]; then
-	notify-send "BATTERY CRITICAL: $BATTERY_LEVEL"
+	notify-send --urgency=critical "BATTERY CRITICAL: $BATTERY_LEVEL %"
 fi
