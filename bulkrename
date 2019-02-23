@@ -1,0 +1,12 @@
+#!/bin/bash
+DIRECTORY_CONTENTS=(*)
+COUNTER=0
+> /tmp/rename
+for name in "${DIRECTORY_CONTENTS[@]}"; do
+	echo $name >> /tmp/rename
+done
+$EDITOR /tmp/rename && 
+for name in $(cat /tmp/rename); do
+	$(mv -n ${DIRECTORY_CONTENTS[$COUNTER]} $name)
+	COUNTER=$((COUNTER + 1))
+done
