@@ -1,0 +1,10 @@
+#!/bin/bash
+FILENAME=$(fzf)
+case "$1" in
+	v)
+		nvim $FILENAME;;
+	m)
+		mupdf $FILENAME;;
+esac
+
+
