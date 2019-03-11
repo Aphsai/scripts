@@ -1,10 +1,10 @@
 #!/bin/bash
 FILENAME=$(fzf)
-case "$1" in
-	v)
-		nvim $FILENAME;;
-	m)
+case "${FILENAME##*.}" in
+	"pdf")
 		mupdf $FILENAME;;
+	*)
+		nvim $FILENAME;;
 esac
 
 
