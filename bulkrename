@@ -6,8 +6,8 @@ for name in "${DIRECTORY_CONTENTS[@]}"; do
 	echo $name >> /tmp/rename
 done
 $EDITOR /tmp/rename && 
-for name in $(cat /tmp/rename); do
-	$(mv -n "${DIRECTORY_CONTENTS[$COUNTER]}" "$name" 2> /dev/null)
+while read name; do
+	$(mv "${DIRECTORY_CONTENTS[$COUNTER]}" "$name" 2> /dev/null)
 	COUNTER=$((COUNTER + 1))
-done
+done < /tmp/rename
 rm /tmp/rename
