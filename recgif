@@ -1,0 +1,6 @@
+#!/bin/sh
+export DBUS_SESSION_BUS_ADDRESS=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$(pidof i3)/environ | cut -d= -f2-)
+
+$(xdotool getactivewindow getwindowgeometry | grep '[0-9]\+[x,][0-9]\+' | awk '{print $2}' | paste - - | awk '{print "ffmpeg -video_size "$2" -framerate 25 -f x11grab -i :0.0+"$1" -t 10 /home/aphsai/pictures/gifs/"systime()".gif"}')
+wait
+notify-send "GIF Recorded!"

@@ -2,3 +2,7 @@
 TIME=$(date +%s%N)
 sleep 0.2
 import ~/pictures/screenshots/"$TIME".png && xclip -selection clipboard -t image/png -i ~/pictures/screenshots/"$TIME".png
+
+if [[ $1 = "-c" ]]; then
+	echo ~/pictures/screenshots/"$TIME".png | xclip -selection clipboard
+fi
