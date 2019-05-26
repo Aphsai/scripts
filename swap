@@ -1,0 +1,5 @@
+#!/bin/sh
+cat $2 > .tmp
+cat $1 > $2
+cat .tmp > $1
+rm .tmp
