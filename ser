@@ -3,6 +3,10 @@ FILENAME=$(fzf)
 case "${FILENAME##*.}" in
 	"pdf")
 		mupdf $FILENAME;;
+    "mp4")
+        mpv $FILENAME;;
+    "mkv")
+        mpv $FILENAME;;
 	*)
 		nvim $FILENAME;;
 esac

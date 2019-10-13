@@ -1,0 +1,3 @@
+#!/bin/bash
+sudo updmap-sys --force --enable Map=$1.map
+sudo texhash

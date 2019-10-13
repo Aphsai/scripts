@@ -1,0 +1,7 @@
+#!/bin/sh
+if [[ -z $(pidof spotifyd) ]]; then
+    spotifyd
+fi
+
+st -e spt
+
