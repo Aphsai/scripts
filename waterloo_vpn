@@ -1,3 +1,2 @@
 #!/bin/bash
-
-echo $W_PASSWORD | sudo openconnect -b -u $W_USERNAME cn-vpn.uwaterloo.ca &
+sudo openconnect -b -u $W_USERNAME cn-vpn.uwaterloo.ca

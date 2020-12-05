@@ -1,0 +1,7 @@
+#!/bin/sh
+cupsenable $PRINTER
+cupsaccept $PRINTER
+lpr $1
+lpstat
+
+
